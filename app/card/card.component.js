@@ -8,28 +8,28 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var forms_1 = require('@angular/forms');
-var app_component_1 = require('./app.component');
-var card_component_1 = require('./card/card.component');
-var AppModule = (function () {
-    function AppModule() {
+var core_1 = require("@angular/core");
+var task_1 = require('../model/task');
+var CardComponent = (function () {
+    function CardComponent() {
     }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [
-                platform_browser_1.BrowserModule,
-                forms_1.FormsModule],
-            declarations: [
-                app_component_1.AppComponent,
-                card_component_1.CardComponent
-            ],
-            bootstrap: [app_component_1.AppComponent]
+    CardComponent.prototype.statusToggle = function () {
+        this.task.completed = !this.task.completed;
+    };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', task_1.Task)
+    ], CardComponent.prototype, "task", void 0);
+    CardComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'app-card',
+            templateUrl: 'templates/card.component.html',
+            styleUrls: ['styles/card.component.css']
         }), 
         __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    ], CardComponent);
+    return CardComponent;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.CardComponent = CardComponent;
+//# sourceMappingURL=card.component.js.map
